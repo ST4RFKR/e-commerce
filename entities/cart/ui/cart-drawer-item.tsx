@@ -1,8 +1,6 @@
-
 import Image from 'next/image';
 import { Button } from '../../../shared/components/ui/button';
 import { Minus, Plus, X } from 'lucide-react';
-
 
 
 interface CartItemProps {

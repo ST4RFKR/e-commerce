@@ -4,7 +4,6 @@ import { LogoIcon } from "../../icons/logo-icon/logo-icon";
 import { Link } from "@/app/i18n/navigation";
 
 
-
 export function Logo() {
     const t = useTranslations("logo");
 

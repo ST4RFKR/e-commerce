@@ -2,7 +2,6 @@ import { convertPrice } from "@/shared/lib/convert-price";
 import { productMapper } from "../model/product-mapper";
 
 
-
 describe('productMapper', () => {
     it('should throw error when translation is missing', () => {
         const product = {

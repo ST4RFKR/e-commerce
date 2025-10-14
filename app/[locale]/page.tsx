@@ -1,4 +1,3 @@
-
 import { setRequestLocale } from 'next-intl/server';
 import { Container } from '@/shared/components/common';
 import { Header } from '@/widgets';

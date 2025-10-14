@@ -39,7 +39,16 @@ export default defineConfig([
             "react/react-in-jsx-scope": "off",
             "react-hooks/rules-of-hooks": "error",
             "react-hooks/exhaustive-deps": "warn",
-            "@typescript-eslint/triple-slash-reference": "off"
+            "@typescript-eslint/triple-slash-reference": "off",
+            // Запрещает множественные пустые строки
+            "no-multiple-empty-lines": ["error", {
+                max: 2,           // максимум 1 пустая строка подряд
+                maxEOF: 1,        // максимум 1 пустая строка в конце файла
+                maxBOF: 0         // запрещает пустые строки в начале файла
+            }],
+            // Дополнительные правила для чистоты кода
+            "no-trailing-spaces": "error",        // запрещает пробелы в конце строк
+            "eol-last": "error",                  // требует пустую строку в конце файла
         },
         settings: {
             react: {

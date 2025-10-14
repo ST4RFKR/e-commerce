@@ -1,7 +1,5 @@
-
 import { ProductDTO } from '@/entities/product/types/product';
 import { create } from 'zustand';
-
 
 
 interface ProductModalStore {

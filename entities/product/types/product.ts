@@ -2,8 +2,6 @@ import { Product, ProductImage, ProductTranslation } from "@/app/generated/prism
 import { Language } from "@/shared/types/types";
 
 
-
-
 export interface ProductResponce extends Product {
     images: ProductImage[],
     translations: ProductTranslation[]

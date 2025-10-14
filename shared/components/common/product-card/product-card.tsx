@@ -15,7 +15,6 @@ export function ProductCard({ product }: ProductCardProps) {
     const { openModal } = useProductModal();
 
 
-
     const symbol = useCurrencySymbol();
     const t = useTranslations("HomePage");
     const { title, description, price, images } = product;

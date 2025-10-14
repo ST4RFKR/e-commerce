@@ -2,8 +2,6 @@ import prisma from "@/prisma/prisma-client";
 import { Language } from "@/shared/types/types";
 
 
-
-
 export const productRepository = {
 
     async getAllProducts(language: Language = 'en') {

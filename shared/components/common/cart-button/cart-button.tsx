@@ -17,7 +17,6 @@ export const CartButton = ({ count, total, className, onClick }: Props) => {
     const symbol = useCurrencySymbol();
 
 
-
     return (
         <Button
             loading={false}

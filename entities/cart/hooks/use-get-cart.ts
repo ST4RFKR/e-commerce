@@ -1,8 +1,6 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { cartApi } from "../api/cart-api";
 import { useLocale } from "next-intl";
-
 
 
 export const useGetCart = () => {

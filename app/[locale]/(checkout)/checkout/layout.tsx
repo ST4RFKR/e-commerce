@@ -1,4 +1,3 @@
-
 import { Container, Logo } from '@/shared/components/common';
 import { Metadata } from 'next';
 import { Suspense } from 'react';

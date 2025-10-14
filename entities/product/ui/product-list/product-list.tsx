@@ -7,9 +7,6 @@ import { useProducts } from "../../hooks/use-products";
 import { ProductDTO } from "../../types/product";
 
 
-
-
-
 export const ProductList = () => {
 
     const { data, isLoading, error } = useProducts();

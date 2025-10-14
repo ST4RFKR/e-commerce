@@ -1,4 +1,3 @@
-
 //Hooks
 export { useProducts } from './hooks/use-products';
 

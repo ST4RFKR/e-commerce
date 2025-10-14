@@ -1,8 +1,5 @@
-
 import axios from "axios";
 import { ProductDTO } from "../types/product";
-
-
 
 
 export const productApi = {

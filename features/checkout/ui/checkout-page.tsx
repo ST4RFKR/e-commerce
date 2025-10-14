@@ -11,9 +11,6 @@ import { CheckoutItemDetails } from "./checkout-item-details";
 import { Package } from "lucide-react";
 import { CartItemDTO } from "@/entities/cart/types/cart";
 
-
-
-
 export function CheckoutPage() {
     const currencySymbol = useCurrencySymbol();
     const { data, onClickCountButton, onClickRemoveItemCart } = useCart();
