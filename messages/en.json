@@ -1,0 +1,46 @@
+{
+    "HomePage": {
+        "switchLanguage": "Switch language",
+        "addToCart": "Add to cart",
+        "toChoose": "Choose the bouquet"
+    },
+    "Checkout": {
+        "title": "Checkout",
+        "personalData": "Personal Information",
+        "productsInOrder": "Products in Order",
+        "totalAmount": "Order Total",
+        "deliveryCost": "Delivery Cost",
+        "deliveryCostShort": "Delivery Cost",
+        "form": {
+            "firstName": "First Name",
+            "firstNamePlaceholder": "Enter your first name",
+            "lastName": "Last Name",
+            "lastNamePlaceholder": "Enter your last name",
+            "email": "Email",
+            "emailPlaceholder": "Enter your email address",
+            "phone": "Phone",
+            "phonePlaceholder": "Enter your phone number",
+            "address": "Address",
+            "addressPlaceholder": "Enter your address",
+            "comment": "Comment",
+            "commentPlaceholder": "Add a comment to your order (optional)",
+            "confirm": "Confirm"
+        }
+    },
+    "Cart": {
+        "toast": {
+            "added": "Product added to cart",
+            "removed": "Product removed from cart"
+        },
+        "title": "In the cart",
+        "empty": "Your cart is empty",
+        "emptyDescription": "Add products to your cart to proceed with checkout",
+        "backButton": "Go back",
+        "checkout": "Checkout",
+        "toPay": "To pay"
+    },
+    "logo": {
+        "title": "Soap Bouquets",
+        "description": "Flowers that last forever"
+    }
+}

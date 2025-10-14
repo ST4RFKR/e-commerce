@@ -1,0 +1,46 @@
+{
+    "HomePage": {
+        "addToCart": "Aggiungi al carrello",
+        "switchLanguage": "Cambia lingua",
+        "toChoose": "Scegli il bouquet"
+    },
+    "Checkout": {
+        "title": "Pagamento",
+        "personalData": "Dati personali",
+        "productsInOrder": "Prodotti nell'ordine",
+        "totalAmount": "Totale ordine",
+        "deliveryCost": "Costo di consegna",
+        "deliveryCostShort": "Costo di consegna",
+        "form": {
+            "firstName": "Nome",
+            "firstNamePlaceholder": "Inserisci il tuo nome",
+            "lastName": "Cognome",
+            "lastNamePlaceholder": "Inserisci il tuo cognome",
+            "email": "Email",
+            "emailPlaceholder": "Inserisci la tua email",
+            "phone": "Telefono",
+            "phonePlaceholder": "Inserisci il tuo numero di telefono",
+            "address": "Indirizzo",
+            "addressPlaceholder": "Inserisci il tuo indirizzo",
+            "comment": "Commento",
+            "commentPlaceholder": "Aggiungi un commento all'ordine (facoltativo)",
+            "confirm": "Conferma"
+        }
+    },
+    "Cart": {
+        "toast": {
+            "added": "Prodotto aggiunto al carrello",
+            "removed": "Prodotto rimosso dal carrello"
+        },
+        "title": "Nel carrello",
+        "empty": "Il carrello è vuoto",
+        "emptyDescription": "Aggiungi prodotti al carrello per procedere con l’ordine",
+        "backButton": "Torna indietro",
+        "checkout": "Procedi all’acquisto",
+        "toPay": "Da pagare"
+    },
+    "logo": {
+        "title": "Bouquet di Sapone",
+        "description": "Fiori che durano per sempre"
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "HomePage": {
+        "addToCart": "Додати в кошик",
+        "switchLanguage": "Змінити мову",
+        "toChoose": "Вибрати цей букет"
+    },
+    "Checkout": {
+        "title": "Оформлення замовлення",
+        "personalData": "Персональні дані",
+        "productsInOrder": "Продукти у замовленні",
+        "totalAmount": "Сума замовлення",
+        "deliveryCost": "Вартість доставки",
+        "deliveryCostShort": "За тарифом перевізника",
+        "form": {
+            "firstName": "Ім'я",
+            "firstNamePlaceholder": "Введіть ваше ім'я",
+            "lastName": "Прізвище",
+            "lastNamePlaceholder": "Введіть ваше прізвище",
+            "email": "Електронна пошта",
+            "emailPlaceholder": "Введіть вашу електронну пошту",
+            "phone": "Телефон",
+            "phonePlaceholder": "Введіть ваш номер телефону",
+            "address": "Адреса",
+            "addressPlaceholder": "Введіть вашу адресу",
+            "comment": "Коментар",
+            "commentPlaceholder": "Додайте коментар до замовлення (необов’язково)",
+            "confirm": "Підтвердити"
+        }
+    },
+    "Cart": {
+        "toast": {
+            "added": "Продукт доданий до кошика",
+            "removed": "Продукт видалений з кошика"
+        },
+        "title": "В кошику",
+        "empty": "Кошик порожній",
+        "emptyDescription": "Додайте товари до кошика, щоб оформити замовлення",
+        "backButton": "Повернутися назад",
+        "checkout": "Оформити замовлення",
+        "toPay": "До сплати"
+    },
+    "logo": {
+        "title": "Мильні Букети",
+        "description": "Квіти, які вічні"
+    }
+}
