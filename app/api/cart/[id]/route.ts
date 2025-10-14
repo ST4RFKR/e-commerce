@@ -1,6 +1,8 @@
-import { cartRepository } from "@/entities/cart/repositories/cart.repository";
-import { Language } from "@/entities/product/types/product";
+
+import { cartServices } from "@/entities/cart/services/cart.services";
+
 import prisma from "@/prisma/prisma-client";
+import { Language } from "@/shared/types/types";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -37,7 +39,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                 quantity,
             },
         });
-        const updateCart = await cartRepository.findCart(locale as Language, token);
+        const updateCart = await cartServices.getCart(locale as Language, token);
 
         return NextResponse.json(updateCart);
 

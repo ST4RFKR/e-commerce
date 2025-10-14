@@ -1,5 +1,5 @@
 
-import { productServices } from "@/entities/product";
+import { productServices } from "@/entities/product/services/product.services";
 import { Language } from "@/shared/types/types";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -2,6 +2,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cartRepository } from "@/entities/cart/repositories/cart.repository";
 import { Language } from "@/shared/types/types";
+import { cartServices } from "@/entities/cart/services/cart.services";
+
+
 
 
 export async function GET(req: NextRequest) {
@@ -17,7 +20,7 @@ export async function GET(req: NextRequest) {
                 _count: { items: 0 }
             });
         }
-        const cart = await cartRepository.findCart(language as Language, token as string);
+        const cart = await cartServices.getCart(token, language as Language);
         return NextResponse.json(cart);
 
 

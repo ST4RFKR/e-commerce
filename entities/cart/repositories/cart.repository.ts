@@ -1,48 +1,51 @@
 import { calculateTotalAmount } from '@/shared/lib/calculate-total-amount';
-
-import { CartDTO, CartResponse } from "../types/cart";
-
+import { CartResponse } from "../types/cart";
 import prisma from "@/prisma/prisma-client";
-import { cartMapper } from "../model/cart-mapper";
 import { Language } from '@/shared/types/types';
 
 
 export const cartRepository = {
-
-    async findCart(language: Language = 'en', token: string): Promise<CartDTO> {
-
+    async findCartByToken(token: string, language: Language = 'en'): Promise<CartResponse | null> {
         const userCart = await prisma.cart.findFirst({
             where: { token },
             include: {
                 items: {
-                    orderBy: {
-                        createdAt: 'desc',
-                    },
+                    orderBy: { createdAt: 'desc' },
                     include: {
                         productItem: {
                             include: {
-                                images: {
-                                    take: 1
-                                },
-                                translations: {
-                                    where: {
-                                        language: language
-                                    }
-                                }
+                                images: { take: 1 },
+                                translations: { where: { language } }
                             }
                         }
                     },
                 }
             },
         });
-        if (!userCart) {
-            return {
-                items: [],
-                totalAmount: 0,
-            };
-        }
-        return cartMapper.toDTO(userCart);
+
+        return userCart;
     },
+    async createEmptyCart(token: string): Promise<CartResponse> {
+        return await prisma.cart.create({
+            data: {
+                token,
+                totalAmount: 0
+            },
+            include: {
+                items: {
+                    include: {
+                        productItem: {
+                            include: {
+                                images: { take: 1 },
+                                translations: true
+                            }
+                        }
+                    },
+                }
+            },
+        });
+    },
+
     /**
     * Добавление товара в корзину
     */
