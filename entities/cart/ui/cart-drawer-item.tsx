@@ -21,7 +21,7 @@ interface CartItemProps {
 }
 
 export function CartDrawerItem({
-    product: { id, title, imageUrl, price, productId, quantity },
+    product: { id, title, imageUrl, price, quantity },
     symbol,
     onClickCountButton,
     onRemove,

@@ -17,6 +17,7 @@ import { CartDrawerItem } from './cart-drawer-item';
 import { useCurrencySymbol } from '@/shared/hooks';
 import { useCart } from '../hooks/use-cart';
 import { useTranslations } from 'next-intl';
+import { CartItemDTO } from '../types/cart';
 
 
 type CartDrawerProps = {
@@ -68,7 +69,7 @@ export const CartDrawer = ({ children, className }: CartDrawerProps) => {
                 ) : (
                     <div className="flex-1 overflow-y-auto">
                         <div className="divide-y">
-                            {items.map((item: any) => (
+                            {items.map((item: CartItemDTO) => (
                                 <CartDrawerItem
                                     key={item.productId}
                                     product={item}

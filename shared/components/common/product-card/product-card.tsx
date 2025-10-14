@@ -12,7 +12,7 @@ type ProductCardProps = {
 
 
 export function ProductCard({ product }: ProductCardProps) {
-    const { openModal, isOpen } = useProductModal();
+    const { openModal } = useProductModal();
 
 
 
@@ -20,9 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
     const t = useTranslations("HomePage");
     const { title, description, price, images } = product;
 
-    const onAddToCart = (product: ProductDTO) => {
-        console.log(product);
-    };
+
     return (
         <Card className="overflow-hidden hover:shadow-lg transition-shadow pb-6">
             <div className="aspect-video overflow-hidden">

@@ -5,11 +5,11 @@ import { CheckoutBlock } from "./checkout-block";
 import { CartDrawerItem } from "@/entities/cart/ui/cart-drawer-item";
 import { useCurrencySymbol } from "@/shared/hooks";
 import { useCart } from "@/entities/cart/hooks/use-cart";
-import { redirect } from "next/navigation";
+
 import { useTranslations } from "next-intl";
 import { CheckoutItemDetails } from "./checkout-item-details";
-import { Package, Snail } from "lucide-react";
-
+import { Package } from "lucide-react";
+import { CartItemDTO } from "@/entities/cart/types/cart";
 
 
 
@@ -25,7 +25,7 @@ export function CheckoutPage() {
             <div className="flex flex-col gap-4">
 
                 <CheckoutBlock title={"1. " + t("productsInOrder")}>
-                    {data?.items.map((item: any) => (
+                    {data?.items.map((item: CartItemDTO) => (
                         <CartDrawerItem
                             key={item.productId}
                             product={item}

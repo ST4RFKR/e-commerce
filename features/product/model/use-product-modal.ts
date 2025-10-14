@@ -1,12 +1,13 @@
 
+import { ProductDTO } from '@/entities/product/types/product';
 import { create } from 'zustand';
 
 
 
 interface ProductModalStore {
     isOpen: boolean;
-    product: any | null;
-    openModal: (product: any) => void;
+    product: ProductDTO | null;
+    openModal: (product: ProductDTO) => void;
     closeModal: () => void;
 }
 

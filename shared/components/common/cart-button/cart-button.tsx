@@ -3,7 +3,6 @@ import React from 'react';
 import { ArrowRight, ShoppingCart } from 'lucide-react';
 import { Button } from '../../ui';
 import { cn } from '@/shared/lib/utils';
-import { useParams } from 'next/navigation';
 import { useCurrencySymbol } from '@/shared/hooks';
 
 
