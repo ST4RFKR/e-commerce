@@ -1,6 +1,6 @@
 import { OrderStatus } from "@/app/generated/prisma";
-import prisma from "@/prisma/prisma-client";
 import { NextRequest, NextResponse } from "next/server";
+import prisma from "../../../../../prisma/prisma-client";
 
 export async function POST(req: NextRequest) {
     try {

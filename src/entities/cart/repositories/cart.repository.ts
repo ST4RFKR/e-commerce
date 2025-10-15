@@ -3,9 +3,39 @@ import { CartResponse } from "../types/cart";
 
 import { Language } from '@/shared/types/types';
 import prisma from '../../../../prisma/prisma-client';
+import { Prisma } from '@/app/generated/prisma';
 
 
 export const cartRepository = {
+    async _recalculateCartTotal(tx: Prisma.TransactionClient, cartId: number): Promise<void> {
+        const cart = await tx.cart.findFirst({
+            where: { id: cartId },
+            include: {
+                items: {
+                    include: {
+                        productItem: {
+                            include: {
+                                images: { take: 1 },
+                                translations: true
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        if (!cart) {
+            throw new Error("CART_NOT_FOUND");
+        }
+
+        if (cart) {
+            const totalAmount = calculateTotalAmount(cart.items);
+            await tx.cart.update({
+                where: { id: cartId },
+                data: { totalAmount },
+            });
+        }
+    },
+
     async findCartByToken(token: string, language: Language = 'en'): Promise<CartResponse | null> {
         const userCart = await prisma.cart.findFirst({
             where: { token },
@@ -98,35 +128,8 @@ export const cartRepository = {
                 });
             }
 
-            // 5. Получаем все товары корзины для пересчета
-            const updatedCart = await tx.cart.findFirst({
-                where: { token },
-                include: {
-                    items: {
-                        orderBy: { createdAt: 'desc' },
-                        include: {
-                            productItem: {
-                                include: {
-                                    images: { take: 1 },
-                                    translations: true
-                                }
-                            }
-                        }
-                    },
-                },
-            });
-            if (!updatedCart) {
-                throw new Error("CART_NOT_FOUND");
-            }
-
-            // 6. Пересчитываем totalAmount
-            const totalAmount = calculateTotalAmount(updatedCart.items);
-
-            // 7. Обновляем totalAmount в БД
-            await tx.cart.update({
-                where: { id: userCart.id },
-                data: { totalAmount },
-            });
+            // 5. Пересчитываем totalAmount
+            await this._recalculateCartTotal(tx, userCart.id);
         });
     },
     async updateItemQuantity(cartItemId: number, quantity: number, token: string): Promise<void> {
@@ -156,6 +159,8 @@ export const cartRepository = {
                 where: { id: cartItemId },
                 data: { quantity },
             });
+            // 5. Пересчитываем totalAmount
+            await this._recalculateCartTotal(tx, cartItem.cartId);;
 
         });
     },
@@ -181,6 +186,9 @@ export const cartRepository = {
             await tx.cartItem.delete({
                 where: { id: cartItemId },
             });
+
+            // 4. Пересчитываем totalAmount
+            await this._recalculateCartTotal(tx, cartItem.cartId);
         });
     },
 
