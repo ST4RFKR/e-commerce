@@ -9,7 +9,7 @@ const config = {
         ...tsJestTransformCfg,
     },
     moduleNameMapper: {
-        "^@/(.*)$": "<rootDir>/$1",
+        "^@/(.*)$": "<rootDir>/src/$1",
     },
 };
 
