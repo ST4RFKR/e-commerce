@@ -19,7 +19,6 @@ describe('productMapper', () => {
     });
     it('should correctly map a valid product to DTO', () => {
 
-
         const mockProduct = {
             id: 42,
             sku: 'flower-1',

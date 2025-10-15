@@ -11,6 +11,7 @@ const config = {
     moduleNameMapper: {
         "^@/(.*)$": "<rootDir>/src/$1",
     },
+    moduleDirectories: ["node_modules", "<rootDir>/src"],
 };
 
 export default config;
