@@ -25,6 +25,13 @@
             "comment": "Commento",
             "commentPlaceholder": "Aggiungi un commento all'ordine (facoltativo)",
             "confirm": "Conferma"
+        },
+        "cartEmpty": "Il carrello é vuoto",
+        "cartEmptyDescription": "Il tuo carrello è vuoto. Aggiungi articoli per continuare il pagamento e goderti la tua esperienza di acquisto.",
+        "cartEmptyButton": "Torna al negozio",
+        "toast": {
+            "success": "Ordine creato con successo",
+            "error": "Errore durante la creazione dell'ordine"
         }
     },
     "Cart": {

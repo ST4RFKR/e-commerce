@@ -25,6 +25,13 @@
             "comment": "Comment",
             "commentPlaceholder": "Add a comment to your order (optional)",
             "confirm": "Confirm"
+        },
+        "cartEmpty": "Your cart is empty",
+        "cartEmptyDescription": "Your cart is empty. Please add items to continue your checkout and enjoy your shopping experience.",
+        "cartEmptyButton": "Go back to the store",
+        "toast": {
+            "success": "Order created successfully",
+            "error": "There was an error creating the order"
         }
     },
     "Cart": {

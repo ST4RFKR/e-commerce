@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { checkoutSchema } from '../model/checkout-schema';
 import type { z } from 'zod';
 import { useTranslations } from 'next-intl';
+import { useCreateOrder } from '@/entities/checkout/hooks/use-create-order';
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
@@ -24,9 +25,10 @@ export const CheckoutFormPersonalData = ({ className }: Props) => {
         resolver: zodResolver(checkoutSchema),
         mode: 'onBlur',
     });
+    const createOrder = useCreateOrder();
 
     const onSubmit: SubmitHandler<CheckoutFormValues> = (data) => {
-        console.log('Checkout data:', data);
+        createOrder.mutate(data);
     };
 
     return (

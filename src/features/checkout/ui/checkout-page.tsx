@@ -11,42 +11,51 @@ import { CheckoutItemDetails } from "./checkout-item-details";
 import { Package } from "lucide-react";
 import { CartItemDTO } from "@/entities/cart/types/cart";
 
+import { CheckoutEmpty } from "./checkout-empty";
+
 export function CheckoutPage() {
     const currencySymbol = useCurrencySymbol();
     const { data, onClickCountButton, onClickRemoveItemCart } = useCart();
     const t = useTranslations("Checkout");
 
+    const isEmpty = !data?.items || data.items.length === 0;
+
     return (
         <Container className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold m-4">{t("title")}</h2>
-            <div className="flex flex-col gap-4">
 
-                <CheckoutBlock title={"1. " + t("productsInOrder")}>
-                    {data?.items.map((item: CartItemDTO) => (
-                        <CartDrawerItem
-                            key={item.productId}
-                            product={item}
-                            symbol={currencySymbol}
-                            onClickCountButton={onClickCountButton}
-                            onRemove={onClickRemoveItemCart}
+            {isEmpty ? (
+                <CheckoutEmpty />
+            ) : (
+                <div className="flex flex-col gap-4">
+
+                    <CheckoutBlock title={"1. " + t("productsInOrder")}>
+                        {data.items.map((item: CartItemDTO) => (
+                            <CartDrawerItem
+                                key={item.productId}
+                                product={item}
+                                symbol={currencySymbol}
+                                onClickCountButton={onClickCountButton}
+                                onRemove={onClickRemoveItemCart}
+                            />
+                        ))}
+                    </CheckoutBlock>
+                    <CheckoutBlock title={"2. " + t("totalAmount")}>
+                        <CheckoutItemDetails
+                            title={
+                                <>
+                                    <Package className="text-neutral-300 mr-2" />
+                                    {t("totalAmount")}:
+                                </>
+                            }
+                            value={`${data.totalAmount} ${currencySymbol}`}
                         />
-                    ))}
-                </CheckoutBlock>
-                <CheckoutBlock title={"2. " + t("totalAmount")}>
-                    <CheckoutItemDetails
-                        title={
-                            <>
-                                <Package className="text-neutral-300 mr-2" />
-                                {t("totalAmount")}:
-                            </>
-                        }
-                        value={`${data?.totalAmount} ${currencySymbol}`}
-                    />
 
-                </CheckoutBlock>
-                <CheckoutFormPersonalData />
+                    </CheckoutBlock>
+                    <CheckoutFormPersonalData />
 
-            </div>
+                </div>
+            )}
         </Container>
     );
 }

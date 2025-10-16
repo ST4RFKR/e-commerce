@@ -22,6 +22,7 @@ describe('cartMapper', () => {
             const mockCart = createMockCart();
             const result = cartMapper.toDTO(mockCart);
 
+            expect(result.items).toHaveLength(3);
             expect(result).toEqual({
                 items: [
                     {

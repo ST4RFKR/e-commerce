@@ -10,7 +10,6 @@ export const productApi = {
         }
 
         const url = `${process.env.NEXT_PUBLIC_API_URL}/product?${params.toString()}`;
-        console.log('Request URL:', url); // Должно быть: /api/product?language=en
 
         const response = await axios.get<ProductDTO[]>(url);
         return response.data;

@@ -5,7 +5,7 @@ import { Language } from "@/shared/types/types";
 
 export const cartMapper = {
     toDTO(cart: CartResponse): CartDTO {
-
+        let totalAmount = 0;
         return {
             items: cart.items.map(item => {
                 const translation = item.productItem?.translations?.[0];
@@ -13,7 +13,7 @@ export const cartMapper = {
                 const language = (translation?.language as Language) || 'en';
 
                 const price = convertPrice(item.productItem?.price || 0, language);
-
+                totalAmount += price * item.quantity;
                 return {
                     id: item.id,
                     productId: item.productId,
@@ -24,7 +24,7 @@ export const cartMapper = {
                     quantity: item.quantity
                 };
             }),
-            totalAmount: cart.totalAmount
+            totalAmount
         };
     },
 };
