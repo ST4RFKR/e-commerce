@@ -6,16 +6,22 @@ import { useProducts } from "../../hooks/use-products";
 
 import { ProductDTO } from "../../types/product";
 import { PaginationBar } from "@/shared/components/common/pagination/pagination-bar";
+import { Skeleton } from "@/shared/components/ui";
 
 
 export const ProductList = () => {
 
     const [page, setPage] = useState(1);
     const limit = 8;
-    const { data, isLoading, error, refetch } = useProducts(page, limit);
+    const { data, isLoading, error } = useProducts(page, limit);
 
-    if (isLoading) return <div>Загрузка...</div>;
+    if (isLoading) return <div className="animate-pulse grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+            <Skeleton key={i} className="md:h-[390px] h-[200px] w-[190px] md:w-full bg-gray-200 rounded-xl" />
+        ))}
+    </div>;
     if (error) return <div>Ошибка загрузки продуктов</div>;
+
     const products = data?.products || [];
     const pagination = data?.pagination;
     const totalPages = pagination?.pages || 1;
@@ -23,10 +29,9 @@ export const ProductList = () => {
 
     const handlePageChange = (newPage: number) => {
         setPage(newPage);
-        refetch();
     };
     return (
-        <div>
+        <div className="pb-4">
 
             <ul className="grid grid-cols-2 gap-1 md:gap-4 md:grid-cols-4">
                 {products.map((product: ProductDTO) => (

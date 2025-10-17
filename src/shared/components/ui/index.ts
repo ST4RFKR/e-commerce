@@ -7,3 +7,4 @@ export * from './dialog'
 export * from './drawer'
 export * from './sheet'
 export * from './pagination'
+export { Skeleton } from "./skeleton"

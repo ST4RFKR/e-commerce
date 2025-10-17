@@ -62,5 +62,11 @@
             "managerContact": "Il nostro manager ti contatterà a breve per confermare l'ordine.",
             "bestRegards": "Cordiali saluti,"
         }
+    },
+    "Footer": {
+        "description": "Bouquet di Sapone",
+        "socialMedia": "Social Media",
+        "contacts": "Contatti",
+        "copyright": "© 2025 Bouquet di Sapone. Tutti i diritti riservati"
     }
 }

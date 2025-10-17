@@ -31,7 +31,7 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         // First page
         if (currentPage > 2) {
             items.push(
-                <PaginationItem key={1}>
+                <PaginationItem className="cursor-pointer" key={1}>
                     <PaginationLink onClick={() => onPageChange(1)}>
                         1
                     </PaginationLink>

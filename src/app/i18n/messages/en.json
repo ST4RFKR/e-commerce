@@ -62,5 +62,11 @@
             "managerContact": "Our manager will contact you shortly to confirm your order.",
             "bestRegards": "Best regards,"
         }
+    },
+    "Footer": {
+        "description": "Handmade flower bouquets",
+        "socialMedia": "Social media",
+        "contacts": "Contacts",
+        "copyright": "© 2025 Soap Bouquets. All rights reserved"
     }
 }
