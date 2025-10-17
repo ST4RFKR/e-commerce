@@ -2,7 +2,11 @@
     "HomePage": {
         "addToCart": "Додати в кошик",
         "switchLanguage": "Змінити мову",
-        "toChoose": "Вибрати цей букет"
+        "toChoose": "Вибрати цей букет",
+        "Banner": {
+            "title": "Букети з мила",
+            "description": "Цікаві букети з мила ручної роботи"
+        }
     },
     "Checkout": {
         "title": "Оформлення замовлення",

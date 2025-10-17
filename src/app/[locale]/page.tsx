@@ -23,8 +23,6 @@ export default async function HomePage({ params }: Props) {
                 <Container>
                     <Header />
                     <Banner
-                        title="Букети з мила"
-                        description="Зроблені власними руками"
                         desktopImage="https://images.prom.ua/6493287968_w640_h640_6493287968.jpg"
                         mobileImage="https://images.prom.ua/6493287968_w640_h640_6493287968.jpg"
                         textAlign='left'

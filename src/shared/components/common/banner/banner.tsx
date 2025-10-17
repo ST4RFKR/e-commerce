@@ -1,8 +1,10 @@
+'use client';
 import { cn } from '@/shared/lib/utils';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 interface BannerProps {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     mobileImage: string;
     desktopImage: string;
     className?: string;
@@ -32,17 +34,18 @@ export function Banner({
         center: "text-center",
         right: "text-right"
     };
+    const t = useTranslations("HomePage");
 
     return (
         <div className={cn("relative h-[220px] w-full mb-5 overflow-hidden rounded-lg", className)}>
             {/* Mobile Image */}
             <div className="md:hidden absolute inset-0">
-                <Image src={mobileImage} alt={title} fill className="object-cover" priority />
+                <Image src={mobileImage} alt={"mobileImage"} fill className="object-cover" priority />
             </div>
 
             {/* Desktop Image */}
             <div className="hidden md:block absolute inset-0">
-                <Image src={desktopImage} alt={title} fill className="object-cover" priority />
+                <Image src={desktopImage} alt={'desktopImage'} fill className="object-cover" priority />
             </div>
 
             {/* Overlay */}
@@ -55,10 +58,10 @@ export function Banner({
                 textAlignment[textAlign]
             )}>
                 <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-                    {title}
+                    {title || t("Banner.title")}
                 </h2>
                 <p className="text-sm md:text-base max-w-md text-white">
-                    {description}
+                    {description || t("Banner.description")}
                 </p>
             </div>
         </div>

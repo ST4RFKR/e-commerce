@@ -2,7 +2,11 @@
     "HomePage": {
         "addToCart": "Aggiungi al carrello",
         "switchLanguage": "Cambia lingua",
-        "toChoose": "Scegli il bouquet"
+        "toChoose": "Scegli il bouquet",
+        "Banner": {
+            "title": "Soap Bouquets",
+            "description": "Fiori che durano per sempre"
+        }
     },
     "Checkout": {
         "title": "Pagamento",

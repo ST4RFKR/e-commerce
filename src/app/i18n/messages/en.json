@@ -2,7 +2,11 @@
     "HomePage": {
         "switchLanguage": "Switch language",
         "addToCart": "Add to cart",
-        "toChoose": "Choose the bouquet"
+        "toChoose": "Choose the bouquet",
+        "Banner": {
+            "title": "Soap Bouquets",
+            "description": "Flowers that last forever"
+        }
     },
     "Checkout": {
         "title": "Checkout",
