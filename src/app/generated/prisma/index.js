@@ -240,8 +240,11 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
-        "native": true
+        "value": "windows"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -268,8 +271,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id Int @id @default(autoincrement())\n\n  fullName String\n  email    String    @unique\n  password String\n  role     UserRole  @default(USER)\n  verified DateTime?\n\n  provider   String?\n  providerId String?\n\n  cart   Cart?\n  orders Order[]\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Product {\n  id        Int      @id @default(autoincrement())\n  sku       String   @unique\n  price     Int\n  stock     Int\n  isActive  Boolean  @default(true)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  translations ProductTranslation[]\n\n  images   ProductImage[]\n  CartItem CartItem[]\n\n  @@index([sku])\n}\n\nmodel ProductTranslation {\n  id          Int     @id @default(autoincrement())\n  productId   Int\n  language    String // 'en', 'uk', 'ru' и т.д.\n  title       String\n  description String  @db.Text\n  slug        String // URL-friendly версия для SEO\n  metaTitle   String?\n  metaDesc    String?\n\n  product Product @relation(fields: [productId], references: [id])\n\n  @@unique([productId, language])\n  @@index([language])\n  @@index([slug, language])\n}\n\nmodel ProductImage {\n  id        Int    @id @default(autoincrement())\n  productId Int\n  imageUrl  String\n\n  product Product @relation(fields: [productId], references: [id])\n\n  @@map(\"product_image\")\n}\n\nmodel Cart {\n  id Int @id @default(autoincrement())\n\n  user   User? @relation(fields: [userId], references: [id])\n  userId Int?  @unique\n\n  items CartItem[]\n\n  token String\n\n  totalAmount Int @default(0)\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel CartItem {\n  id Int @id @default(autoincrement())\n\n  cart   Cart @relation(fields: [cartId], references: [id])\n  cartId Int\n\n  productItem Product @relation(fields: [productId], references: [id])\n  productId   Int\n\n  quantity Int @default(1)\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Order {\n  id Int @id @default(autoincrement())\n\n  user   User? @relation(fields: [userId], references: [id])\n  userId Int?\n\n  token String\n\n  totalAmount Int\n  status      OrderStatus\n  paymentId   String?\n\n  items Json\n\n  fullName String\n  email    String\n  phone    String\n  comment  String?\n\n  deliveryType      DeliveryType?\n  deliveryCity      String?\n  deliveryWarehouse String?\n  deliveryStoreId   Int?\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nenum UserRole {\n  USER\n  ADMIN\n}\n\nenum OrderStatus {\n  PENDING\n  SUCCEEDED\n  CANCELLED\n}\n\nenum DeliveryType {\n  NOVA_POSHTA\n  PICKUP\n}\n",
-  "inlineSchemaHash": "f0e61cc6ad952f4989065aa750eba1ee417ca7b6ec9c15fce3e56b5eeb759a89",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/app/generated/prisma\"\n  binaryTargets = [\"windows\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id Int @id @default(autoincrement())\n\n  fullName String\n  email    String    @unique\n  password String\n  role     UserRole  @default(USER)\n  verified DateTime?\n\n  provider   String?\n  providerId String?\n\n  cart   Cart?\n  orders Order[]\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Product {\n  id        Int      @id @default(autoincrement())\n  sku       String   @unique\n  price     Int\n  stock     Int\n  isActive  Boolean  @default(true)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  translations ProductTranslation[]\n\n  images   ProductImage[]\n  CartItem CartItem[]\n\n  @@index([sku])\n}\n\nmodel ProductTranslation {\n  id          Int     @id @default(autoincrement())\n  productId   Int\n  language    String // 'en', 'uk', 'ru' и т.д.\n  title       String\n  description String  @db.Text\n  slug        String // URL-friendly версия для SEO\n  metaTitle   String?\n  metaDesc    String?\n\n  product Product @relation(fields: [productId], references: [id])\n\n  @@unique([productId, language])\n  @@index([language])\n  @@index([slug, language])\n}\n\nmodel ProductImage {\n  id        Int    @id @default(autoincrement())\n  productId Int\n  imageUrl  String\n\n  product Product @relation(fields: [productId], references: [id])\n\n  @@map(\"product_image\")\n}\n\nmodel Cart {\n  id Int @id @default(autoincrement())\n\n  user   User? @relation(fields: [userId], references: [id])\n  userId Int?  @unique\n\n  items CartItem[]\n\n  token String\n\n  totalAmount Int @default(0)\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel CartItem {\n  id Int @id @default(autoincrement())\n\n  cart   Cart @relation(fields: [cartId], references: [id])\n  cartId Int\n\n  productItem Product @relation(fields: [productId], references: [id])\n  productId   Int\n\n  quantity Int @default(1)\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Order {\n  id Int @id @default(autoincrement())\n\n  user   User? @relation(fields: [userId], references: [id])\n  userId Int?\n\n  token String\n\n  totalAmount Int\n  status      OrderStatus\n  paymentId   String?\n\n  items Json\n\n  fullName String\n  email    String\n  phone    String\n  comment  String?\n\n  deliveryType      DeliveryType?\n  deliveryCity      String?\n  deliveryWarehouse String?\n  deliveryStoreId   Int?\n\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nenum UserRole {\n  USER\n  ADMIN\n}\n\nenum OrderStatus {\n  PENDING\n  SUCCEEDED\n  CANCELLED\n}\n\nenum DeliveryType {\n  NOVA_POSHTA\n  PICKUP\n}\n",
+  "inlineSchemaHash": "11894b73cfd33541726cef420f3d3981b0437b0d6f89a06ad84d8202455bff8a",
   "copyEngine": true
 }
 
@@ -310,6 +313,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "src/app/generated/prisma/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "src/app/generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "src/app/generated/prisma/schema.prisma")
