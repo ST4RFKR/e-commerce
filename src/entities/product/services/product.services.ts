@@ -1,13 +1,15 @@
 import { Language } from "@/shared/types/types";
 import { productMapper } from "../model/product-mapper";
 import { productRepository } from "../repositories/product.repository";
-import { ProductDTO } from "../types/product";
 
 export const productServices = {
-    async getAllProducts(language: Language = 'en'): Promise<ProductDTO[]> {
-        const products = await productRepository.getAllProducts(language);
+    async getAllProducts(language: Language = 'en', page: number, limit: number) {
+        const res = await productRepository.getAllProducts(language, page, limit);
 
-        return products.map(p => productMapper.toDTO(p));
+        return {
+            products: res.products.map(productMapper.toDTO),
+            pagination: { ...res.pagination }
+        }
     }
-
 }
+

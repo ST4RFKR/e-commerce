@@ -30,22 +30,24 @@ export function ProductCard({ product }: ProductCardProps) {
                 />
             </div>
             <CardHeader>
-                <CardTitle className="text-xl">{product.title}</CardTitle>
-                <CardDescription className="line-clamp-2">
+                <CardTitle className="text-md md:text-xl">{product.title}</CardTitle>
+                <CardDescription className="line-clamp-2 ">
                     {description}
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="flex gap-4 justify-between">
-                    <div className="text-2xl font-bold text-primary">
+                <div className="flex gap-4 justify-between items-center">
+                    <div className="text-lg md:text-2xl font-bold text-primary">
                         {price} {symbol}
                     </div>
                     <Button
                         className="flex items-center"
                         onClick={() => openModal(product)}
                     >
-                        <Plus className="mr-2 h-4 w-4" />
-                        {t("toChoose")}
+                        <Plus className=" h-4 w-4" />
+                        <div className="font-semibold hidden sm:block md:block">
+                            {t("toChoose")}
+                        </div>
                     </Button>
 
                 </div>

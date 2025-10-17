@@ -16,7 +16,7 @@ export default async function HomePage({ params }: Props) {
 
 
     return (
-        <div className="min-h-screen p-8">
+        <div className="min-h-screen p-2">
             <Container>
                 <Header />
                 <ProductList />
