@@ -3,6 +3,8 @@
         "addToCart": "Додати в кошик",
         "switchLanguage": "Змінити мову",
         "toChoose": "Вибрати цей букет",
+        "inStock": "В наявності",
+        "outOfStock": "Під замовлення",
         "Banner": {
             "title": "Букети з мила",
             "description": "Цікаві букети з мила ручної роботи"

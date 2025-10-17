@@ -3,6 +3,8 @@
         "addToCart": "Aggiungi al carrello",
         "switchLanguage": "Cambia lingua",
         "toChoose": "Scegli il bouquet",
+        "inStock": "In stock",
+        "outOfStock": "Out of stock",
         "Banner": {
             "title": "Soap Bouquets",
             "description": "Fiori che durano per sempre"

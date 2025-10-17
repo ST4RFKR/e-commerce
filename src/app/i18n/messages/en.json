@@ -3,6 +3,8 @@
         "switchLanguage": "Switch language",
         "addToCart": "Add to cart",
         "toChoose": "Choose the bouquet",
+        "inStock": "In stock",
+        "outOfStock": "Out of stock",
         "Banner": {
             "title": "Soap Bouquets",
             "description": "Flowers that last forever"

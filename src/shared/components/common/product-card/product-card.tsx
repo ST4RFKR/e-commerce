@@ -17,20 +17,29 @@ export function ProductCard({ product }: ProductCardProps) {
 
     const symbol = useCurrencySymbol();
     const t = useTranslations("HomePage");
-    const { title, description, price, images } = product;
+    const { title, description, price, images, isActive } = product;
 
 
     return (
         <Card className="overflow-hidden hover:shadow-lg transition-shadow pb-6">
-            <div className="aspect-video overflow-hidden">
+            <div className="aspect-video overflow-hidden relative">
                 <img
                     src={images[0].imageUrl}
                     alt={title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
+                <div
+                    className={`absolute top-2 left-2 px-2 py-1 text-xs font-semibold rounded-md
+                        ${isActive
+                            ? 'bg-green-500 text-white'
+                            : 'bg-red-500 text-white'
+                        }`}
+                >
+                    {isActive ? t("inStock") : t("outOfStock")}
+                </div>
             </div>
             <CardHeader>
-                <CardTitle className="text-md md:text-xl">{product.title}</CardTitle>
+                <CardTitle className="text-md md:text-xl truncate">{title}</CardTitle>
                 <CardDescription className="line-clamp-2 ">
                     {description}
                 </CardDescription>

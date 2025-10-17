@@ -17,6 +17,7 @@ const products = [
         sku: 'ROSE-BOUQUET-0011',
         price: 10,
         stock: 25,
+        isActive: false,
         translations: {
             en: {
                 title: 'Red Roses Bouquet',
@@ -452,6 +453,7 @@ const products = [
         sku: 'CARNATION-RED-00966',
         price: 33,
         stock: 35,
+        isActive: false,
         translations: {
             en: {
                 title: 'Red Carnations Bouquet',
@@ -597,6 +599,7 @@ const products = [
         sku: 'PEONY-PINK-005222',
         price: 30,
         stock: 18,
+        isActive: false,
         translations: {
             en: {
                 title: 'Pink Peonies Bouquet',
