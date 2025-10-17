@@ -31,9 +31,9 @@ export const CartDrawer = ({ children, className }: CartDrawerProps) => {
 
     const t = useTranslations("Cart");
 
-    if (!data) return null;
+    const items = data?.items ?? [];
+    const totalAmount = data?.totalAmount ?? 0;
 
-    const { totalAmount, items } = data;
 
     return (
         <Sheet>

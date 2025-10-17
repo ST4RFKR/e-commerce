@@ -49,5 +49,18 @@
     "logo": {
         "title": "Soap Bouquets",
         "description": "Flowers that last forever"
+    },
+    "EmailTemplate": {
+        "createOrder": {
+            "orderCreated": "Your order",
+            "successfullyCreated": "has been successfully created",
+            "product": "Product",
+            "quantity": "Quantity",
+            "price": "Price",
+            "currency": "€",
+            "totalAmount": "Total amount",
+            "managerContact": "Our manager will contact you shortly to confirm your order.",
+            "bestRegards": "Best regards,"
+        }
     }
 }

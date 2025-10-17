@@ -13,9 +13,9 @@ import {
 import { FlagIcon } from '../../icons/flag-icon/flag-icon';
 
 const languageNames: Record<string, string> = {
-    uk: 'Українська',
-    it: 'Italiano',
-    en: 'English',
+    it: 'IT',
+    uk: 'UA',
+    en: 'EN',
 };
 
 export function LanguageSwitcher() {
@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
     return (
         <div className="flex items-center gap-2 ">
             <Select value={currentLocale} onValueChange={handleLanguageChange}>
-                <SelectTrigger>
+                <SelectTrigger className='border-primary h-10'>
                     <SelectValue placeholder="Select language">
                         <span className="flex items-center gap-2">
                             <FlagIcon locale={currentLocale} />

@@ -49,5 +49,18 @@
     "logo": {
         "title": "Bouquet di Sapone",
         "description": "Fiori che durano per sempre"
+    },
+    "EmailTemplate": {
+        "createOrder": {
+            "orderCreated": "Il tuo ordine",
+            "successfullyCreated": "è stato creato con successo",
+            "product": "Prodotto",
+            "quantity": "Quantità",
+            "price": "Prezzo",
+            "currency": "€",
+            "totalAmount": "Importo totale",
+            "managerContact": "Il nostro manager ti contatterà a breve per confermare l'ordine.",
+            "bestRegards": "Cordiali saluti,"
+        }
     }
 }

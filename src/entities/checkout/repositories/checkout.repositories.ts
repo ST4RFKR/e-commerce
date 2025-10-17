@@ -2,7 +2,7 @@ import { cartRepository } from "@/entities/cart/server";
 import prisma from "../../../../prisma/prisma-client";
 import { OrderStatus } from "@/app/generated/prisma";
 import { CheckoutSchema } from "@/features/checkout/model/checkout-schema";
-
+import { orderEmailService } from "@/shared/services/email/order-email.service";
 
 export const checkoutRepository = {
     async createOrder(token: string, data: CheckoutSchema) {
@@ -49,6 +49,13 @@ export const checkoutRepository = {
 
                 return newOrder;
             });
+            await orderEmailService.sendOrderConfirmation({
+                email: data.email,
+                orderId: order.id,
+                items: userCart.items,
+                locale: data.locale ?? 'uk',
+            });
+
             return {
                 success: true,
                 orderId: order.id,

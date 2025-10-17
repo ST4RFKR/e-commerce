@@ -1,5 +1,4 @@
 'use client';
-import { CartDrawer } from "@/entities/cart";
 import { useCart } from "@/entities/cart/hooks/use-cart";
 import { CartButton, LanguageSwitcher, Logo } from "@/shared/components/common";
 
@@ -15,9 +14,8 @@ export const Header = () => {
         <Logo />
         <div className='flex gap-4'>
             <LanguageSwitcher />
-            <CartDrawer>
-                <CartButton count={items.length} total={totalAmount} />
-            </CartDrawer>
+            <CartButton count={items.length} total={totalAmount} />
+
         </div>
     </header>
 };

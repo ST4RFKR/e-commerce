@@ -6,8 +6,9 @@ import { type SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { checkoutSchema } from '../model/checkout-schema';
 import type { z } from 'zod';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useCreateOrder } from '@/entities/checkout/hooks/use-create-order';
+import { Language } from '@/shared/types/types';
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
@@ -25,10 +26,11 @@ export const CheckoutFormPersonalData = ({ className }: Props) => {
         resolver: zodResolver(checkoutSchema),
         mode: 'onBlur',
     });
+    const locale = useLocale() as Language;
     const createOrder = useCreateOrder();
 
     const onSubmit: SubmitHandler<CheckoutFormValues> = (data) => {
-        createOrder.mutate(data);
+        createOrder.mutate({ ...data, locale });
     };
 
     return (

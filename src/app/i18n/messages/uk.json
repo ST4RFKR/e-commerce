@@ -49,5 +49,18 @@
     "logo": {
         "title": "Мильні Букети",
         "description": "Квіти, які вічні"
+    },
+    "EmailTemplate": {
+        "createOrder": {
+            "orderCreated": "Ваше замовлення",
+            "successfullyCreated": "успішно створено",
+            "product": "Товар",
+            "quantity": "Кількість",
+            "price": "Ціна",
+            "currency": "грн",
+            "totalAmount": "Загальна сума",
+            "managerContact": "Наш менеджер зв’яжеться з вами найближчим часом для підтвердження замовлення.",
+            "bestRegards": "З повагою,"
+        }
     }
 }
