@@ -60,6 +60,7 @@ export function Footer() {
                 {/* Копирайт */}
                 <div className="border-t border-gray-800 mt-6 pt-4 text-center text-sm">
                     <p>© {new Date().getFullYear()} {t("copyright")}</p>
+                    <p>Developed with 💜 by <a href="https://t.me/Evg_Supr" target="_blank">Eugene</a></p>
                 </div>
             </div>
         </footer>

@@ -4,7 +4,7 @@
         "addToCart": "Add to cart",
         "toChoose": "Choose the bouquet",
         "inStock": "In stock",
-        "outOfStock": "Out of stock",
+        "outOfStock": "Custom order",
         "Banner": {
             "title": "Soap Bouquets",
             "description": "Flowers that last forever"
@@ -73,6 +73,6 @@
         "description": "Handmade flower bouquets",
         "socialMedia": "Social media",
         "contacts": "Contacts",
-        "copyright": "© 2025 Soap Bouquets. All rights reserved"
+        "copyright": " Soap Bouquets. All rights reserved"
     }
 }

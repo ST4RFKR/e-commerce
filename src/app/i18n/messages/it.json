@@ -3,8 +3,8 @@
         "addToCart": "Aggiungi al carrello",
         "switchLanguage": "Cambia lingua",
         "toChoose": "Scegli il bouquet",
-        "inStock": "In stock",
-        "outOfStock": "Out of stock",
+        "inStock": "in magazzino",
+        "outOfStock": "Ordine personalizzato",
         "Banner": {
             "title": "Soap Bouquets",
             "description": "Fiori che durano per sempre"
@@ -73,6 +73,6 @@
         "description": "Bouquet di Sapone",
         "socialMedia": "Social Media",
         "contacts": "Contatti",
-        "copyright": "© 2025 Bouquet di Sapone. Tutti i diritti riservati"
+        "copyright": " Bouquet di Sapone. Tutti i diritti riservati"
     }
 }

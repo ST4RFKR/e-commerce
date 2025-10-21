@@ -17,6 +17,20 @@ type Props = {
 export const metadata: Metadata = {
     title: 'Bouquet | Main',
     description: '',
+    openGraph: {
+        title: 'Bouquet - інтернет магазин!',
+        description: 'Вічні квіти, які виготовлені власними руками.',
+        images: [
+            {
+                url: 'https://images.prom.ua/6731930987_w640_h640_buket-v-konverte.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Bouquet',
+            },
+        ],
+        locale: 'uk_UA',
+        type: 'website',
+    },
 };
 
 const nunito = Nunito({
