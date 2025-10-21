@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
     return (
         <div className="flex items-center gap-2 ">
             <Select value={currentLocale} onValueChange={handleLanguageChange}>
-                <SelectTrigger className='border-primary h-10'>
+                <SelectTrigger className='border-primary h-10' aria-label="Select language">
                     <SelectValue placeholder="Select language">
                         <span className="flex items-center gap-2">
                             <FlagIcon locale={currentLocale} />

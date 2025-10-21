@@ -16,7 +16,7 @@ type Props = {
 };
 export const metadata: Metadata = {
     title: 'Bouquet | Main',
-    description: '',
+    description: 'Букети з мила. Вічні квіти, які виготовлені власними руками.',
     openGraph: {
         title: 'Bouquet - інтернет магазин!',
         description: 'Вічні квіти, які виготовлені власними руками.',

@@ -10,7 +10,7 @@ export function Logo() {
     return (
         <div className="flex items-center gap-3 group cursor-pointer select-none">
             <div className="transition-transform duration-300 group-hover:scale-105">
-                <Link href="/">
+                <Link href="/" aria-label="Logotype link">
                     <LogoIcon width="60px" height="60px" />
                 </Link>
             </div>

@@ -24,6 +24,7 @@ export function Footer() {
                         <div className="flex gap-3">
                             <Link
                                 href="https://www.facebook.com"
+                                aria-label="facebook link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-blue-400 transition-colors">
@@ -33,6 +34,7 @@ export function Footer() {
                             </Link>
                             <Link
                                 href="https://www.instagram.com"
+                                aria-label="instagram link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-pink-500 transition-colors">
