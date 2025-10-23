@@ -6,6 +6,7 @@ import { ScrollToTopAdvanced } from '@/shared/components/common/scroll-to-top/sc
 import { Footer } from '@/widgets/footer/footer';
 import { Banner } from '@/shared/components/common/banner/banner';
 import { ProductModal } from '@/features/product/ui/product-modal';
+import { Suspense } from 'react';
 
 
 type Props = {
@@ -22,7 +23,9 @@ export default async function HomePage({ params }: Props) {
         <div className="min-h-screen p-2 flex flex-col justify-between">
             <main>
                 <Container>
-                    <Header />
+                    <Suspense fallback={null}>
+                        <Header />
+                    </Suspense>
                     <Banner
                         desktopImage="https://images.prom.ua/6493287968_w640_h640_6493287968.jpg"
                         mobileImage="https://images.prom.ua/6493287968_w640_h640_6493287968.jpg"
