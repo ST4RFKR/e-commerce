@@ -5,6 +5,7 @@ import { ProductList } from '@/entities/product';
 import { ScrollToTopAdvanced } from '@/shared/components/common/scroll-to-top/scroll-to-top';
 import { Footer } from '@/widgets/footer/footer';
 import { Banner } from '@/shared/components/common/banner/banner';
+import { ProductModal } from '@/features/product/ui/product-modal';
 
 
 type Props = {
@@ -28,6 +29,7 @@ export default async function HomePage({ params }: Props) {
                         textAlign='left'
                     />
                     <ProductList />
+                    <ProductModal />
                     <ScrollToTopAdvanced />
                 </Container>
 

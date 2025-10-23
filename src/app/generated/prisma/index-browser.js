@@ -133,6 +133,13 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.VerificationCodeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  code: 'code',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   sku: 'sku',
@@ -240,6 +247,7 @@ exports.DeliveryType = exports.$Enums.DeliveryType = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  VerificationCode: 'VerificationCode',
   Product: 'Product',
   ProductTranslation: 'ProductTranslation',
   ProductImage: 'ProductImage',

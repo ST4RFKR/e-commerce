@@ -10,6 +10,38 @@
             "description": "Fiori che durano per sempre"
         }
     },
+    "Auth": {
+        "login": {
+            "title": "Accedi",
+            "email": "Email",
+            "password": "Password",
+            "button": "Accedi",
+            "loading": "Accesso in corso...",
+            "noAccount": "Non hai un account?",
+            "signUp": "Registrati qui",
+            "toast": {
+                "success": "Accesso effettuato con successo",
+                "error": "Email o password errati"
+            }
+        },
+        "register": {
+            "title": "Registrazione",
+            "name": "Nome",
+            "email": "Email",
+            "password": "Password",
+            "confirmPassword": "Conferma Password",
+            "button": "Registrati",
+            "loading": "Creazione account...",
+            "haveAccount": "Hai già un account?",
+            "signIn": "Accedi qui"
+        },
+        "common": {
+            "or": "o",
+            "loginWithGoogle": "Accedi con Google",
+            "profile": "Profilo",
+            "exit": "Esci"
+        }
+    },
     "Checkout": {
         "title": "Pagamento",
         "personalData": "Dati personali",
@@ -74,5 +106,19 @@
         "socialMedia": "Social Media",
         "contacts": "Contatti",
         "copyright": " Bouquet di Sapone. Tutti i diritti riservati"
+    },
+    "NotAuth": {
+        "title": "Autorizzazione richiesta",
+        "description": "Devi accedere per visualizzare questa pagina",
+        "alertDescription": "Accedi al tuo account o registrati per continuare a utilizzare il servizio",
+        "loginButton": "Accedi",
+        "backButton": "Indietro",
+        "homeButton": "Vai alla Home"
+    },
+    "NotFound": {
+        "title": "Ops! Pagina non trovata",
+        "description": "Sembra che questa pagina sia andata in vacanza. Troviamo qualcosa di meglio!",
+        "backButton": "Torna indietro",
+        "homeButton": "Home"
     }
 }

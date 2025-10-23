@@ -1,5 +1,5 @@
 import { DeliveryType, OrderStatus, PrismaClient, UserRole } from "@/app/generated/prisma";
-
+import { hashSync } from 'bcryptjs';
 
 
 
@@ -728,14 +728,12 @@ async function main() {
 
     console.log('✅ Database cleaned');
 
-    // Создание пользователей
-    const hashedPassword = 'password123';
 
     const adminUser = await prisma.user.create({
         data: {
             fullName: 'Admin User',
             email: 'admin@example.com',
-            password: hashedPassword,
+            password: hashSync('111111', 10),
             role: UserRole.ADMIN,
             verified: new Date(),
         },
@@ -745,7 +743,7 @@ async function main() {
         data: {
             fullName: 'John Doe',
             email: 'john@example.com',
-            password: hashedPassword,
+            password: hashSync('111111', 10),
             role: UserRole.USER,
             verified: new Date(),
         },

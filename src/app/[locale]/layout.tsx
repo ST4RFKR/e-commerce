@@ -1,4 +1,4 @@
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
@@ -6,9 +6,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '../i18n/routing';
 import '../styles/globals.css';
 import { Nunito } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
-import QueryProvider from '../providers/query-provider';
 import { Metadata } from 'next';
+import Providers from '../providers/providers';
 
 type Props = {
     children: React.ReactNode;
@@ -58,23 +57,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     return (
         <html lang={locale} suppressHydrationWarning>
             <body className={`${nunito.variable} font-sans antialiased`}>
-                <QueryProvider>
-                    <NextIntlClientProvider messages={messages}>
-                        <ToastContainer
-                            position="top-center"
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick={false}
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                            theme="light"
-                        />
-                        {children}
-                    </NextIntlClientProvider>
-                </QueryProvider>
+                <Providers messages={messages} locale={locale}>
+                    {children}
+                </Providers>
 
             </body>
         </html>

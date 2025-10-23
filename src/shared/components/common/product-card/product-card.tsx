@@ -4,7 +4,6 @@ import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } fro
 import { useCurrencySymbol } from "@/shared/hooks";
 import { useTranslations } from "next-intl";
 import { useProductModal } from '@/features/product/model/use-product-modal';
-import { ProductModal } from "@/features/product/ui/product-modal";
 import { ProductDTO } from "@/entities/product/types/product";
 type ProductCardProps = {
     product: ProductDTO;
@@ -64,7 +63,6 @@ export function ProductCard({ product }: ProductCardProps) {
                         </Button>
 
                     </div>
-                    <ProductModal />
                 </CardContent>
             </Card>
         </li>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, X } from "lucide-react"
+import { Plus } from "lucide-react"
 import { Button, Dialog, DialogContent } from "@/shared/components/ui"
 import { cn } from "@/shared/lib/utils"
 import { useCurrencySymbol } from "@/shared/hooks"
@@ -30,7 +30,6 @@ export function ProductModal() {
         <Dialog open={isOpen} onOpenChange={closeModal}>
             <DialogContent
                 className="max-w-5xl w-full m-0 p-4 sm:p-6 md:p-8 bg-white rounded-2xl"
-                showCloseButton={false}
             >
                 <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 relative">
                     {/* Left side: Images */}
@@ -75,11 +74,7 @@ export function ProductModal() {
                             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight pr-8 sm:pr-0">
                                 {title}
                             </h2>
-                            {/* Close button - mobile optimized */}
-                            <Button onClick={closeModal} className="rounded-full p-3 absolute sm:-top-6 sm:-right-6 top-0 right-0">
-                                <X className="sm:h-5 sm:w-5 h-4 w-4" />
-                                <span className="sr-only ">Close</span>
-                            </Button>
+
                         </div>
 
                         <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">

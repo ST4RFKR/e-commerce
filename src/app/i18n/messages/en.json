@@ -10,6 +10,38 @@
             "description": "Flowers that last forever"
         }
     },
+    "Auth": {
+        "login": {
+            "title": "Sign In",
+            "email": "Email",
+            "password": "Password",
+            "button": "Sign In",
+            "loading": "Signing in...",
+            "noAccount": "Don't have an account?",
+            "signUp": "Sign up here",
+            "toast": {
+                "success": "Sign in successful",
+                "error": "Invalid email or password"
+            }
+        },
+        "register": {
+            "title": "Sign Up",
+            "name": "Name",
+            "email": "Email",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "button": "Sign Up",
+            "loading": "Creating account...",
+            "haveAccount": "Already have an account?",
+            "signIn": "Sign in here"
+        },
+        "common": {
+            "or": "or",
+            "loginWithGoogle": "Sign in with Google",
+            "profile": "Profile",
+            "exit": "Exit"
+        }
+    },
     "Checkout": {
         "title": "Checkout",
         "personalData": "Personal Information",
@@ -74,5 +106,19 @@
         "socialMedia": "Social media",
         "contacts": "Contacts",
         "copyright": " Soap Bouquets. All rights reserved"
+    },
+    "NotAuth": {
+        "title": "Authorization Required",
+        "description": "You need to sign in to access this page",
+        "alertDescription": "Sign in to your account or register to continue using the service",
+        "loginButton": "Sign In",
+        "backButton": "Back",
+        "homeButton": "Go to Home"
+    },
+    "NotFound": {
+        "title": "Oops! Page not found",
+        "description": "It looks like this page went on vacation. Let’s find something better!",
+        "backButton": "Go Back",
+        "homeButton": "Home"
     }
 }
