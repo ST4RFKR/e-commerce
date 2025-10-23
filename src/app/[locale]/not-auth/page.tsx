@@ -15,8 +15,8 @@ import {
 } from '@/shared/components/ui/card';
 
 import { useState } from 'react';
-import { AuthModal } from '@/widgets/auth/ui';
 import { Alert, AlertDescription } from '@/shared/components/ui';
+import { AuthModal } from '@/features/auth/ui';
 
 export default function NotAuthPage() {
     const [open, setOpen] = useState(false);
