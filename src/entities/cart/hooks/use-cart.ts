@@ -1,7 +1,7 @@
 import { useAddToCart } from "./use-add-to-cart";
 import { useGetCart } from "./use-get-cart";
 import { useRemoveItemCart } from "./use-remove-item-cart";
-import { useUpdateItemQuantity } from "./use-update-item-quentity";
+import { useUpdateItemQuantity } from "./use-update-item-quantity";
 
 
 export function useCart() {

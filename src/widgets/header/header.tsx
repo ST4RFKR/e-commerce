@@ -2,11 +2,12 @@
 import { useCart } from "@/entities/cart/hooks/use-cart";
 import { CartButton, LanguageSwitcher, Logo } from "@/shared/components/common";
 import { ProfileButton } from "@/shared/components/common/profile-button/profile-button";
-import { AuthModal } from "../auth/ui";
+
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { useLocale } from "next-intl";
+import { AuthModal } from "@/features/auth/ui";
 
 export const Header = () => {
     const [open, setOpen] = useState(false);

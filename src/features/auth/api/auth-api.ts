@@ -1,6 +1,5 @@
-import { RegisterFormData } from './../../../widgets/auth/types/auth';
-
 import axios from "axios";
+import { RegisterFormData } from "../types/auth";
 
 
 export const authApi = {
