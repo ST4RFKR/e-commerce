@@ -1,8 +1,9 @@
-import { sendEmail } from "@/shared/components/email-templates/email-send/email-send";
+import { sendEmail } from "@/shared/components/email-templates/email-send/send-email";
 import { CreateOrderEmailTemplate } from "@/shared/components/email-templates/create-order/create-order";
 import { convertPrice } from "@/shared/lib/convert-price";
 import { Language } from "@/shared/types/types";
 import { CartItem, Product, ProductImage, ProductTranslation } from "@/app/generated/prisma";
+import { VerificationUserTemplate } from "@/shared/components/email-templates/verification-user/verification-user";
 
 interface CartItemWithProduct extends CartItem {
     productItem: (Product & {
@@ -17,7 +18,7 @@ interface OrderEmailData {
     items: CartItemWithProduct[];
 }
 
-export const orderEmailService = {
+export const emailService = {
     async sendOrderConfirmation(data: OrderEmailData) {
         try {
             const emailComponent = await CreateOrderEmailTemplate({
@@ -49,4 +50,8 @@ export const orderEmailService = {
             throw error;
         }
     },
+    async sendVerificationCode(email: string, code: string) {
+        const subject = 'Bouquet / 📝 Підтвердження реєстрації';
+        await sendEmail(email, subject, VerificationUserTemplate({ code }));
+    }
 };

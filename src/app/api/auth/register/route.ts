@@ -5,73 +5,35 @@ import { hashSync } from 'bcryptjs';
 
 import { getUserSession } from '@/shared/lib/get-user-session';
 import prisma from '../../../../../prisma/prisma-client';
-import { sendEmail } from '@/shared/components/email-templates/email-send/email-send';
-import { VerificationUserTemplate } from '@/shared/components/email-templates/verification-user/verification-user';
+import { registerSchema } from '@/features/auth/types/auth';
+import { userService } from '@/entities/user/services/user.service';
 
-export async function POST(request: Request) {
+
+export async function POST(req: NextRequest) {
     try {
-        const body = await request.json();
+        const data = await req.json();
+        const validatedData = registerSchema.parse(data);
 
-        const user = await prisma.user.findFirst({
-            where: { email: body.email },
-        });
+        const result = await userService.registerUser(validatedData);
 
-        if (user) {
-            if (user.verified) {
-                return NextResponse.json({ error: 'Користувач вже існує' }, { status: 400 });
-            }
+        return NextResponse.json(result);
+    } catch (error) {
+        console.error('Error [CREATE_USER]', error);
 
-            const code = Math.floor(100000 + Math.random() * 900000).toString();
-
-            await prisma.verificationCode.upsert({
-                where: { userId: user.id },
-                update: { code },
-                create: {
-                    code,
-                    userId: user.id,
-                },
-            });
-
-            await sendEmail(
-                user.email,
-                'Bouquet / 📝 Підтвердження реєстрації',
-                VerificationUserTemplate({ code }),
+        if ((error as Error).message === 'USER_ALREADY_EXISTS') {
+            return NextResponse.json(
+                { error: 'Користувач вже існує' },
+                { status: 400 }
             );
-
-            return NextResponse.json({ success: true, message: 'Новий код верифікації відправлено' });
         }
 
-        // Создаем нового пользователя
-        const createdUser = await prisma.user.create({
-            data: {
-                fullName: body.fullName,
-                email: body.email,
-                password: hashSync(body.password, 10),
-            },
-        });
-
-        const code = Math.floor(100000 + Math.random() * 900000).toString();
-
-        await prisma.verificationCode.create({
-            data: {
-                code,
-                userId: createdUser.id,
-            },
-        });
-
-        await sendEmail(
-            createdUser.email,
-            'Bouquet / 📝 Підтвердження реєстрації',
-            VerificationUserTemplate({ code }),
+        return NextResponse.json(
+            { error: 'Внутрішня помилка сервера' },
+            { status: 500 }
         );
-
-        return NextResponse.json({ success: true });
-    } catch (err) {
-        console.error('Error [CREATE_USER]', err);
-        return NextResponse.json({ error: 'Внутрішня помилка сервера' }, { status: 500 });
     }
 }
-
+// TODO: refactor to service pattern
 export async function PUT(request: NextRequest) {
     const body = await request.json();
     try {

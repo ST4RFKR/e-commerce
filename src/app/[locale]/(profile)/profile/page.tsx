@@ -13,6 +13,7 @@ export default async function ProfilePage() {
             locale
         });
     }
-    return (<div>ProfilePage {user?.id}
+    return (<div>{user.id}
+        < div />
     </div>);
 }
