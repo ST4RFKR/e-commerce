@@ -43,13 +43,14 @@ export function ProfileFormPersonalData() {
         }
     }, [data, reset]);
 
-    const onSubmit = (formData: Omit<Profile, 'password' | 'confirmPassword'>) => {
+    const onSubmit = (formData: Omit<Profile, 'confirmPassword'>) => {
         updateProfile.mutate({
             id: data?.id, data: {
                 email: formData.email,
                 fullName: formData.fullName,
                 phone: formData.phone,
-                address: formData.address
+                address: formData.address,
+                password: formData.password
             }
         });
     };

@@ -5,10 +5,10 @@ export const profileSchema = z.object({
     email: z.string().email(),
     phone: z.string().min(2, 'Too short').optional(),
     address: z.string().min(2, 'Too short').optional(),
-    password: z.string().min(2, 'Too short'),
+    password: z.string().min(6, 'Too short'),
     confirmPassword: z
         .string()
-        .min(1, 'Confirm password required'),
+        .min(6, 'Confirm password required'),
 }).refine((data) => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
     path: ['confirmPassword'],

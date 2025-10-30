@@ -64,9 +64,13 @@ export const userRepository = {
         return code;
     },
     async updateUserInfo(id: number, data: Profile) {
+        const password = data.password ? hashSync(data.password, 10) : undefined;
         return prisma.user.update({
             where: { id },
-            data,
+            data: {
+                ...data,
+                password
+            },
         });
     },
 
