@@ -2,6 +2,7 @@ import { emailService } from '@/shared/services/email/email.service';
 
 import { RegisterFormData } from '@/features/auth/types/auth';
 import { userRepository } from '../repositories/user.repository';
+import { Profile } from '@/features/profile/model/profile-schema';
 
 export const userService = {
     async registerUser(data: RegisterFormData) {
@@ -55,5 +56,8 @@ export const userService = {
         await userRepository.deleteVerificationCode(verificationCode.id);
 
         return { success: true };
+    },
+    async updateUserInfo(userId: number, data: Profile) {
+        return userRepository.updateUserInfo(userId, data);
     },
 };

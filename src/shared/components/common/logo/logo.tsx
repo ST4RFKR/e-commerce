@@ -1,7 +1,9 @@
 "use client";
-import { useTranslations } from "next-intl";
-import { LogoIcon } from "../../icons/logo-icon/logo-icon";
+
+
 import { Link } from "@/app/i18n/navigation";
+import { LogoIcon } from "../../icons/logo-icon/logo-icon";
+import { useTranslations } from "next-intl";
 
 
 export function Logo() {

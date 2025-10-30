@@ -1,8 +1,9 @@
 import { redirect } from "@/app/i18n/navigation";
+import { ProfilePage } from "@/features/profile";
 import { getUserSession } from "@/shared/lib/get-user-session";
 import { getLocale } from "next-intl/server";
 
-export default async function ProfilePage() {
+export default async function ProfileHomePage() {
 
     const user = await getUserSession();
     const locale = await getLocale();
@@ -13,7 +14,7 @@ export default async function ProfilePage() {
             locale
         });
     }
-    return (<div>{user.id}
-        < div />
-    </div>);
+    return (
+        <ProfilePage />
+    );
 }

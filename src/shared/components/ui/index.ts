@@ -9,5 +9,6 @@ export * from './sheet'
 export * from './pagination'
 export * from './avatar'
 export * from './alert'
+export * from './accordion'
 export { Skeleton } from "./skeleton"
 

@@ -3,11 +3,13 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '../i18n/routing';
-import '../styles/globals.css';
+
+import '../../styles/globals.css';
 import { Nunito } from 'next/font/google';
 import { Metadata } from 'next';
-import Providers from '../providers/providers';
+import { routing } from '@/app/i18n/routing';
+import Providers from '@/app/providers/providers';
+
 
 type Props = {
     children: React.ReactNode;

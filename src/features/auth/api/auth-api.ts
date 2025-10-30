@@ -10,4 +10,10 @@ export const authApi = {
         const response = await axios.post(url, data);
         return response.data;
     },
+    getMe: async () => {
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/me`;
+        const response = await axios.get(url);
+        return response.data
+
+    }
 };

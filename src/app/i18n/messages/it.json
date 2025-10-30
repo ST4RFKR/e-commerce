@@ -120,5 +120,26 @@
         "description": "Sembra che questa pagina sia andata in vacanza. Troviamo qualcosa di meglio!",
         "backButton": "Torna indietro",
         "homeButton": "Home"
+    },
+    "ProfilePage": {
+        "title": "Dati personali",
+        "description": "Gestisci i tuoi dati personali",
+        "form": {
+            "email": "Email",
+            "fullName": "Nome completo",
+            "phone": "Telefono",
+            "address": "Indirizzo",
+            "password": "Password",
+            "confirmPassword": "Conferma password",
+            "save": "Salva"
+        },
+        "accordion": {
+            "personalData": "Dati personali",
+            "orderHistory": "Storico ordini"
+        },
+        "notifications": {
+            "success": "Profilo aggiornato con successo",
+            "error": "Aggiornamento del profilo non riuscito"
+        }
     }
 }

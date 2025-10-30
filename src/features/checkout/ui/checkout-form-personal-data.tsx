@@ -4,13 +4,11 @@ import { cn } from '@/shared/lib/utils';
 import { FormInput } from '@/shared/components/common/forms/form-input/form-input';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { checkoutSchema } from '../model/checkout-schema';
-import type { z } from 'zod';
+import { CheckoutSchema, checkoutSchema } from '../model/checkout-schema';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCreateOrder } from '@/entities/checkout/hooks/use-create-order';
 import { Language } from '@/shared/types/types';
 
-type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
 interface Props {
     className?: string;
@@ -22,14 +20,14 @@ export const CheckoutFormPersonalData = ({ className }: Props) => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<CheckoutFormValues>({
+    } = useForm<CheckoutSchema>({
         resolver: zodResolver(checkoutSchema),
         mode: 'onBlur',
     });
     const locale = useLocale() as Language;
     const createOrder = useCreateOrder();
 
-    const onSubmit: SubmitHandler<CheckoutFormValues> = (data) => {
+    const onSubmit: SubmitHandler<CheckoutSchema> = (data) => {
         createOrder.mutate({ ...data, locale });
     };
 

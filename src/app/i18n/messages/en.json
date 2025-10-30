@@ -120,5 +120,26 @@
         "description": "It looks like this page went on vacation. Let’s find something better!",
         "backButton": "Go Back",
         "homeButton": "Home"
+    },
+    "ProfilePage": {
+        "title": "Personal data",
+        "description": "Manage your personal data",
+        "form": {
+            "email": "Email",
+            "fullName": "Full name",
+            "phone": "Phone",
+            "address": "Address",
+            "password": "Password",
+            "confirmPassword": "Confirm password",
+            "save": "Save"
+        },
+        "accordion": {
+            "personalData": "Personal data",
+            "orderHistory": "Order history"
+        },
+        "notifications": {
+            "success": "Profile updated successfully",
+            "error": "Failed to update profile"
+        }
     }
 }

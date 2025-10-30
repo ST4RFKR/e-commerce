@@ -9,7 +9,12 @@ import { toast } from "react-toastify";
 import { useLocale } from "next-intl";
 import { AuthModal } from "@/features/auth/ui";
 
-export const Header = () => {
+type Props = {
+    hasCart?: boolean
+    hasProfile?: boolean
+}
+
+export const Header = ({ hasCart = true, hasProfile = true }: Props) => {
     const [open, setOpen] = useState(false);
     const params = useSearchParams();
     const router = useRouter();
@@ -33,10 +38,10 @@ export const Header = () => {
         <div className='flex gap-4'>
             <LanguageSwitcher />
 
-            <ProfileButton onClickSignIn={() => setOpen(true)} />
+            {hasProfile && <ProfileButton onClickSignIn={() => setOpen(true)} />}
             <AuthModal open={open} onOpenChange={setOpen} />
 
-            <CartButton count={items.length} total={totalAmount} />
+            {hasCart && <CartButton count={items.length} total={totalAmount} />}
 
         </div>
     </header>

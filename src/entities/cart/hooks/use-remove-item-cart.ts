@@ -24,9 +24,8 @@ export const useRemoveItemCart = () => {
                     items: old.items.filter((item: CartItemDTO) =>
                         item.id !== cartItemId
                     ),
-                    totalAmount: old.items.reduce((sum, item: CartItemDTO) => {
-                        sum += item.quantity * (item.price ?? 0);
-                        return sum
+                    totalAmount: old.items.reduce((sum: number, item: CartItemDTO) => {
+                        return sum + item.quantity * (item.price ?? 0);
                     }, 0),
                 };
             });

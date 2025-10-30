@@ -1,6 +1,7 @@
 import { RegisterFormData } from '@/features/auth/types/auth';
 import prisma from '../../../../prisma/prisma-client';
 import { hashSync } from 'bcryptjs';
+import { Profile } from '@/features/profile/model/profile-schema';
 
 
 export const userRepository = {
@@ -14,8 +15,11 @@ export const userRepository = {
         return prisma.user.findUnique({
             where: { id },
             select: {
+                id: true,
                 fullName: true,
                 email: true,
+                phone: true,
+                address: true,
                 password: false,
             },
         });
@@ -59,4 +63,12 @@ export const userRepository = {
 
         return code;
     },
+    async updateUserInfo(id: number, data: Profile) {
+        return prisma.user.update({
+            where: { id },
+            data,
+        });
+    },
+
+
 };

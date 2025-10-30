@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 import { getUserSession } from '@/shared/lib/get-user-session';
 import { userService } from '@/entities/user/services/user.service';
 
-export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {

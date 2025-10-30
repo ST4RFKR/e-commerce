@@ -9,13 +9,12 @@ export const metadata: Metadata = {
 
 export default function CheckoutLayout({ children }: { children: React.ReactNode }) {
     return (
-        <main className="min-h-screen bg-[#F5F0E9] p-8"  >
+        <main className="min-h-screen bg-[#F5F0E9] p-4"  >
             <Container>
                 <Suspense>
                     <Logo />
                 </Suspense>
                 {children}
-
             </Container>
         </main>
     );
