@@ -13,8 +13,8 @@ export const cartServices = {
 
         return cartMapper.toDTO(cart);
     },
-    async addItemToCart(token: string, productId: number): Promise<void> {
-        await cartRepository.addItem(token, productId);
+    async addItemToCart(token: string, productId: number, userId: number): Promise<void> {
+        await cartRepository.addItem(token, productId, userId);
     },
 
     async updateItemQuantity(cartItemId: number, quantity: number, token: string): Promise<void> {

@@ -5,6 +5,7 @@ import { UserPen } from "lucide-react"
 import { ProfileFormPersonalData } from "../profile-form-personal-data"
 import { useSession } from "next-auth/react"
 import { useTranslations } from "next-intl"
+import { OrderHistory } from "./order-history"
 
 
 export function PersonalData() {
@@ -43,6 +44,7 @@ export function PersonalData() {
             </Accordion>
 
             {/** TODO: Accordion for order history */}
+            <OrderHistory />
         </div>
     )
 }

@@ -124,6 +124,24 @@
     "ProfilePage": {
         "title": "Dati personali",
         "description": "Gestisci i tuoi dati personali",
+        "OrderHistory": {
+            "title": "Storico ordini",
+            "loading": "Caricamento ordini...",
+            "error": "Errore durante il caricamento degli ordini",
+            "empty": "Non hai ancora effettuato ordini",
+            "orderNumber": "Ordine n°",
+            "status": {
+                "PENDING": "In attesa",
+                "SUCCEEDED": "Completato",
+                "CANCELLED": "Annullato",
+                "PROCESSING": "In elaborazione"
+            },
+            "amount": "Importo",
+            "orderDate": "Data dell’ordine",
+            "products": "Prodotti",
+            "productTitle": "Prodotto",
+            "quantity": "pz"
+        },
         "form": {
             "email": "Email",
             "fullName": "Nome completo",

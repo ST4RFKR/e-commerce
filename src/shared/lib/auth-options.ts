@@ -5,6 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare, hashSync } from "bcryptjs";
 import { UserRole } from "@/app/generated/prisma";
 import prisma from "../../../prisma/prisma-client";
+import { headers } from "next/headers";
 
 
 export const authOptions: AuthOptions = {
@@ -65,8 +66,21 @@ export const authOptions: AuthOptions = {
     },
     callbacks: {
         async signIn({ user, account }) {
+            const headersList = await headers();
+            const cookieHeader = headersList.get('cookie');
+            const cartToken = cookieHeader
+                ?.split('; ')
+                .find(row => row.startsWith('cartToken='))
+                ?.split('=')[1];
+
             try {
                 if (account?.provider === 'credentials') {
+                    if (cartToken && user.id) {
+                        await prisma.cart.updateMany({
+                            where: { token: cartToken },
+                            data: { userId: Number(user.id) }
+                        });
+                    }
                     return true;
                 }
 
@@ -107,6 +121,18 @@ export const authOptions: AuthOptions = {
                         role: 'USER' as UserRole,
                     },
                 });
+                if (cartToken && user.email) {
+                    const findUser = await prisma.user.findFirst({
+                        where: { email: user.email }
+                    });
+
+                    if (findUser) {
+                        await prisma.cart.updateMany({
+                            where: { token: cartToken },
+                            data: { userId: findUser.id }
+                        });
+                    }
+                }
                 return true;
             } catch (error) {
                 console.error('Error [Sign-in]', error);

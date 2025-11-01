@@ -124,6 +124,24 @@
     "ProfilePage": {
         "title": "Особисті дані",
         "description": "Керуйте своїми особистими даними",
+        "OrderHistory": {
+            "title": "Історія замовлень",
+            "loading": "Завантаження замовлень...",
+            "error": "Помилка завантаження замовлень",
+            "empty": "У вас поки немає замовлень",
+            "orderNumber": "Замовлення №",
+            "status": {
+                "PENDING": "В очікуванні",
+                "SUCCEEDED": "Виконано",
+                "CANCELLED": "Скасовано",
+                "PROCESSING": "В обробці"
+            },
+            "amount": "Сума",
+            "orderDate": "Дата замовлення",
+            "products": "Товари",
+            "productTitle": "Товар",
+            "quantity": " шт"
+        },
         "form": {
             "email": "Електронна пошта",
             "fullName": "Повне ім’я",

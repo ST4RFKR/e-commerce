@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Language } from "@/shared/types/types";
 import { cartServices } from "@/entities/cart/services/cart.services";
+import { getUserSession } from "@/shared/lib/get-user-session";
 
 
 export async function GET(req: NextRequest) {
@@ -31,6 +32,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     try {
         let token = req.cookies.get("cartToken")?.value;
+        const user = await getUserSession();
 
         if (!token) {
             token = crypto.randomUUID();
@@ -38,7 +40,7 @@ export async function POST(req: NextRequest) {
 
         const { productId } = await req.json();
 
-        await cartServices.addItemToCart(token, productId);
+        await cartServices.addItemToCart(token, productId, Number(user?.id));
 
         const response = NextResponse.json(
             { message: "Item added successfully" },

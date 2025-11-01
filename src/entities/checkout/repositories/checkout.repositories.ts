@@ -49,12 +49,19 @@ export const checkoutRepository = {
 
                 return newOrder;
             });
-            await emailService.sendOrderConfirmation({
-                email: data.email,
-                orderId: order.id,
-                items: userCart.items,
-                locale: data.locale ?? 'uk',
-            });
+
+
+            try {
+                await emailService.sendOrderConfirmation({
+                    email: data.email,
+                    orderId: order.id,
+                    items: userCart.items,
+                    locale: data.locale ?? 'uk',
+                });
+
+            } catch (error) {
+                console.error('Error sending order confirmation email:', error);
+            }
 
             return {
                 success: true,

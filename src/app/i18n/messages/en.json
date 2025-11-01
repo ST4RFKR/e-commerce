@@ -124,6 +124,24 @@
     "ProfilePage": {
         "title": "Personal data",
         "description": "Manage your personal data",
+        "OrderHistory": {
+            "title": "Order history",
+            "loading": "Loading orders...",
+            "error": "Error loading orders",
+            "empty": "You have no orders yet",
+            "orderNumber": "Order ",
+            "status": {
+                "PENDING": "Pending",
+                "SUCCEEDED": "Completed",
+                "CANCELLED": "Cancelled",
+                "PROCESSING": "Processing"
+            },
+            "amount": "Amount",
+            "orderDate": "Order date",
+            "products": "Products",
+            "productTitle": "Product",
+            "quantity": "pcs"
+        },
         "form": {
             "email": "Email",
             "fullName": "Full name",

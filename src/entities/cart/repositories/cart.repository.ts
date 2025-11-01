@@ -56,11 +56,12 @@ export const cartRepository = {
 
         return userCart;
     },
-    async createEmptyCart(token: string): Promise<CartResponse> {
+    async createEmptyCart(token: string, userId?: number): Promise<CartResponse> {
         return await prisma.cart.create({
             data: {
                 token,
-                totalAmount: 0
+                totalAmount: 0,
+                userId: userId ?? null,
             },
             include: {
                 items: {
@@ -80,7 +81,7 @@ export const cartRepository = {
     /**
     * Добавление товара в корзину
     */
-    async addItem(token: string, productId: number): Promise<void> {
+    async addItem(token: string, productId: number, userId: number): Promise<void> {
         return await prisma.$transaction(async (tx) => {
             // 1. Проверка продукта
             const product = await tx.product.findUnique({
@@ -98,7 +99,7 @@ export const cartRepository = {
 
             if (!userCart) {
                 userCart = await tx.cart.create({
-                    data: { token },
+                    data: { token, userId: userId ?? null, },
                 });
             }
 

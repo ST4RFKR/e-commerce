@@ -92,7 +92,7 @@ export function ProductModal() {
                             <Button
                                 size="lg"
                                 onClick={handleAddToCart}
-                                className="flex sm:flex-none min-w-[140px]"
+                                className="flex sm:flex-none min-w-[140px] rounded-2xl"
                             >
                                 <Plus className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                                 {t("addToCart")}
